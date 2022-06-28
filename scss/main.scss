@@ -1,0 +1,502 @@
+@import './resets';
+@import './variables';
+
+
+@mixin disabled-style{
+  background-color: #aaa;
+  color: grey;
+  border: 1px solid grey;
+}
+
+%row-style{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+%disabled-style{
+  @include disabled-style;
+}
+
+%container-style{
+  width: 150px;
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@mixin align-center{
+  display: flex;
+  align-items: center;
+}
+%align-center{
+  @include align-center;
+}
+
+
+
+
+.container {
+  .navbar{
+    background-color: $secondary;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+    z-index: 10;
+    position: relative;
+  
+    &__logo{
+      color: $primary;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 2rem;
+      padding-top: 15px;
+      @extend %align-center;
+    }
+    &__down{
+      opacity: 1;
+      color: #000000;
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      font-size: 2rem;
+  
+    }
+    &__menu{
+      display: none;
+      @extend %align-center;
+      list-style: none;
+          text-align: center;
+          margin-right: 30px;
+
+
+          &--links{
+            color: #000000;
+            @extend %align-center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+  
+            &:hover{
+              color: $primary;
+              transition: all 0.3s ease;
+            }
+          }
+
+          #button{
+            padding: 12px 24px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            background: $warning;
+            margin-left: 16px;
+            color: white;
+            
+
+            &:hover{
+              background-color: $success;
+              transition: all 0.3s ease;
+            }
+          }
+    }
+  }
+
+
+    max-width: $grid__bp--md * 2px;
+    margin: 0 auto;
+    &-invisible{
+      display: none;
+    }
+    &--fluid {
+      margin: 0;
+      max-width: 100%;
+      &-invisible{
+      display: none;
+    }
+    }
+    &__row1 {
+     @extend %row-style;
+
+    }
+    &__row2 {
+      @extend %row-style;
+  
+      }
+    &__row3{
+      @extend %row-style;
+  
+     }
+    &__row4{
+      @extend %row-style;
+    }
+    &__row5{
+      @extend %row-style;
+    }
+    &__row6{
+      @extend %row-style;;
+    }
+    &__row7{
+      @extend %row-style;
+    }
+    &__row8{
+      @extend %row-style;
+    }
+
+    
+    @for $i from 1 through $grid__cols {
+      &__col-sm-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        
+      }
+      &__btn-info-sm-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $info;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+         }
+        
+      }
+      &__btn-primary-sm-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $primary;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+        }
+        
+      }
+      &__btn-secondary-sm-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $secondary;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+        }
+        
+      }
+      &__btn-warning-sm-#{$i} {
+        
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $warning;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+        }
+        
+      }
+      &__btn-danger-sm-#{$i} {
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $danger;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+        }
+        
+      }
+      &__btn-success-sm-#{$i} {
+
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        background-color: $success;
+        &--disabled{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          @extend %disabled-style;
+        }
+        
+      }
+      &__img-responsive{
+        width: 100%;
+        display: inline-block;
+      }
+      &__alert-sm-#{$i}{
+        flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        &-primary{
+          background-color: $primary;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &-secondary{
+          background-color: $secondary;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &-success{
+          background-color: $success;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &-danger{
+          background-color: $danger;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &-warning{
+          background-color: $warning;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &-info{
+          background-color: $info;
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+      }
+      
+     
+      
+   
+    }
+
+    @media screen and (min-width: ($grid__bp--md * 1px)) {
+      @for $i from 1 through $grid__cols {
+        &__col-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+        }
+        &__btn-info-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__btn-primary-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__btn-secondary-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__btn-warning-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__btn-danger-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__btn-success-md-#{$i} {
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &--disabled{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+            @include disabled-style;
+          }
+          
+        }
+        &__img-responsive{
+          width: 50%;
+          display: inline-block;
+        }
+        &__alert-md-#{$i}{
+          flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          &-primary{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+          &-secondary{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+          &-success{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+          &-danger{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+          &-warning{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+          &-info{
+            flex-basis: (100 / ($grid__cols / $i) ) * 1%;
+          }
+        }
+
+      
+      }
+      .navbar{
+        &__down{
+          opacity: 0;
+        }
+        &__menu{
+          @include align-center;
+          list-style: none;
+          text-align: center;
+          margin-right: 24px;
+
+
+          &--links{
+            color: #000000;
+            @include align-center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+  
+            &:hover{
+              color: $primary;
+              transition: all 0.3s ease;
+            }
+          }
+
+          #button{
+            padding: 12px 24px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            background: $warning;
+            margin-left: 16px;
+            color: white;
+            
+
+            &:hover{
+              background-color: $success;
+              transition: all 0.3s ease;
+            }
+          }
+        }
+     
+      }
+    }
+  }
+  
+  .container {
+    background-color: #030303;
+    padding: 10px;
+    box-sizing: border-box;
+    &__row1{
+        background-color: #ed74f1;
+    }
+    &__row2 {
+      background-color: #f8e74d;
+    }
+    &__row3{
+        background-color: #50eb6a;
+    }
+    &__row4{
+        background-color: #82f7f7;
+    }
+    &__row5{
+        background-color: rgb(205, 230, 252);
+    }
+    &__row6{
+      background-color: rgb(252, 252, 252);
+    }
+    &__row7{
+    background-color: rgb(248, 250, 131);
+    }
+    &__row8{
+    background-color: rgb(107, 116, 238);
+    }
+
+}
+
+
+
+[class*='container__col-'] {
+  background-color: #f50800;
+  outline: 1px solid #000000;
+  @extend %container-style;
+}
+[class*='container__btn-'] {
+  @extend %container-style;
+  cursor: pointer;
+}
+[class*='container__alert-'] {
+ outline: 1px solid #000000;
+ cursor: pointer;
+ @extend %container-style;
+}
+.img{
+  &-rounded{
+    border-radius: 30%;
+  }
+  &-circle{
+    border-radius: 50%;
+  }
+  &-thumbail{
+    border: 2px solid rgb(243, 0, 0);
+    border-radius: 4px; 
+    padding: 5px; 
+  }
+  &-blur{
+    filter: blur(8px);
+  }
+}
+
+.container__text{
+  padding-top: 20px;
+}
+.text{  
+  &-muted{
+  color: gray;
+  }
+  &-primary{
+    color: $primary;
+  }
+  &-error{
+    color: $error;
+  }
+  &-success{
+    color: $success;
+  }
+  &-info{
+    color: $info;
+  }
+  &-warning{
+    color: $warning;
+  }
+  &-danger{
+    color: $danger;
+  }
+
+}
+.bg
+{
+  &-muted{
+  background-color: $secondary;
+  }
+  &-primary{
+    background-color: $primary;
+  }
+  &-error{
+    background-color: $error;
+  }
+  &-success{
+    background-color: $success;
+  }
+  &-info{
+    background-color: $info;
+  }
+  &-warning{
+    background-color: $warning;
+  }
+  &-danger{
+    background-color: $danger;
+  }
+
+}
+
+
+
+
+
+
+    
+
+
+  
+
+
+  
+
+
+

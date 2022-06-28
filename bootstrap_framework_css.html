@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Test</title>
+</head>
+<body>
+ 
+    <div class="container">
+        <nav class="navbar"><a href="#" class="navbar__logo">NAVBAR</a>
+            <div class="navbar__down"> ⌄ </div>
+            <div class="navbar__menu">
+                
+                <a href="#" class="navbar__menu--links">Home</a>
+                <a href="#" class="navbar__menu--links">About</a>
+                <a href="#" class="navbar__menu--links">Log In</a>
+                <a href="#" class="navbar__menu--links" id="button">Sign Up</a>
+                
+           
+            </div>
+    
+        </nav>
+        <div class="container__row1">
+          <div class="container__col-sm-12 container__col-md-12">Lorem ipsum</div>
+        </div>
+        <div class="container__row2">
+            <div class="container__col-sm-12 container__col-md-4">Lorem ipsum</div>
+            <button type="button" class="container__btn-info-sm-6--disabled container__btn-info-md-4--disabled">Info</button>
+            <div class="container__col-sm-6 container__col-md-4">Lorem ipsum</div>
+        </div>
+        <div class="container__row3">
+            <div class="container__col-sm-12 container__col-md-4">Lorem ipsum</div>
+            <button type="button" class="container__btn-primary-sm-8 container__btn-primary-md-4">Primary</button>
+            <button type="button" class="container__btn-secondary-sm-4--disabled container__btn-secondary-md-4--disabled">Secondary</button>
+        </div>
+        <div class="container__row4">
+            <div class="container__col-sm-9 container__col-md-6">Lorem ipsum</div>
+            <div class="container__col-sm-3 container__col-md-6">Lorem ipsum</div>
+            <button type="button" class="container__btn-warning-sm-12 container__btn-md-warning-12">Warning</button>
+        </div>
+        <div class="container__row5">
+            <button type="button" class="container__btn-danger-sm-4 container__btn-md-danger-8">Danger</button>
+            <button type="button" class="container__btn-success-sm-8--disabled container__btn-md-succes-4--disabled">Success</button>
+        </div>
+        <div class="container__row6">
+          <img src="images/image1.jpg" class="container__img-responsive img-rounded" alt="tech board">
+          <img src="images/image2.jpg" class="container__img-responsive img-circle" alt="tech Earth">
+          <img src="images/image3.jpg" class="container__img-responsive img-thumbail" alt="technology in one hand">
+          <img src="images/image4.png" class="container__img-responsive img-blur" alt="hand pointing">
+        </div>
+        <div class="container__row7">
+            <div class="container__text">
+                <p class="text-muted bg-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-primary bg-muted">Etiam rutrum placerat risus, sed varius lectus vehicula et.</p>
+                <p class="text-success bg-info">Phasellus nisl eros, rhoncus lobortis ligula in, accumsan feugiat ligula.</p>
+                <p class="text-info bg-succes">Pellentesque pharetra et nulla consequat finibus.</p>
+                <p class="text-warning bg-error">Mauris euismod venenatis ullamcorper. </p>
+                <p class="text-error bg-warning">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          </div>
+          <div class="container__row8">
+            <div class="container__alert-sm-4-primary container__alert-md-12-primary">This is a primary alert—check it out!</div>
+            <div class="container__alert-sm-4-secondary container__alert-md-12-secondary">This is a secondary alert—check it out!</div>
+            <div class="container__alert-sm-4-success container__alert-md-12-success">This is a success alert—check it out!</div>
+            <div class="container__alert-sm-4-danger container__alert-md-12-danger">This is a danger alert—check it out!</div>
+            <div class="container__alert-sm-4-warning container__alert-md-12-warning">This is a warning alert—check it out!</div>
+            <div class="container__alert-sm-4-info container__alert-md-12-info">This is a info alert—check it out!</div>
+          </div>
+    </div>
+      
+     
+        <script>
+              $('.container__alert-sm-4-primary').click(function(){
+              alert('First of all, Lorem Ipsum');
+            });
+            $('.container__alert-sm-4-secondary').click(function(){
+              alert('Second of all, Ipsum Lorem');
+            });
+            $('.container__alert-sm-4-success').click(function(){
+              alert('You did it, you must feel really special');
+            });
+            $('.container__alert-sm-4-danger').click(function(){
+              alert('!!!!!! DANGER ... DANGER !!!!!!!');
+            });
+            $('.container__alert-sm-4-warning').click(function(){
+              alert('Restart your computer! Last warning!!');
+            });
+            $('.container__alert-sm-4-info').click(function(){
+              alert('Last hour news: Lorem Ipsum');
+            });
+
+                $('.navbar__down').click(function(e){
+                    var navMenu = $(".navbar__menu");
+                    if($(this).hasClass('.navbar__menu--links')){
+                        navMenu.stop(true,false).slideUp();
+                    } else {
+                        navMenu.stop(true,false).slideDown();
+                    }
+
+                    $(this).toggleClass('.navbar__menu--links');
+
+                });
+
+                    $(".navbar__menu a").click(function(e){
+                    var target = $(e.currentTarget);
+                    var menu = $('.navbar__down');
+
+                    menu.trigger('click');    
+                });
+
+        </script>
+</body>
+</html>
